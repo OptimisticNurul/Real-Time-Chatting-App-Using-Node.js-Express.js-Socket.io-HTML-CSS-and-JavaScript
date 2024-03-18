@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <title>IsDB Chat | Chat With Your Friends In Real Time</title>
+    <link rel="shortcut icon" type="image/png" href="./isdb/isdb-32x32.png" />
+</head>
+<body>
+        <div class="chat-container">
+            <header class="chat-header">
+                <div>
+                    <h1>IsDB Chat</h1>
+                </div>
+                <div>
+                    <a href="index.html"
+                        ><button class="btn-leave">Leave Room</button></a
+                    >
+                </div>
+            </header>
+            <main class="chat-body">
+                <section class="info">
+                    <div>
+                        <h3>Roomname</h3>
+                        <h2 class="room-name"></h2>
+                    </div>
+                    <div>
+                        <h3>Users</h3>
+                        <ul id="users"></ul>
+                    </div>
+                </section>
+                <section id="messages" class="messages"></section>
+            </main>
+            <footer class="chat-send">
+                <div class="send-body">
+                    <form action="" class="chat-form">
+                        <input
+                            type="text"
+                            id="msg"
+                            placeholder="Enter Message..."
+                            autocomplete="off"
+                            required
+                        />
+                        <button type="button" onclick="openForm()"><i class="fas fa-file-alt"></i> Form</button>
+                        <button><i class="fas fa-paper-plane"></i>Send</button>
+                    </form>
+                </div>
+            </footer>
+        </div>
+        
+        <div id="popupForm" class="form-popup">
+            <form class="popup-content" id="myForm" onsubmit="submitForm(event)">
+
+                <h2>Enter Your Details</h2>
+                <label for="name"><b>Name</b></label>
+                <input type="text" placeholder="Enter your name" name="name" required>
+
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter your email" name="email" required>
+
+                <label for="address"><b>Address</b></label>
+                <input type="text" placeholder="Enter your address" name="address" required>
+                
+                <button type="submit" class="btn" id="submitBtn">Submit</button>
+
+                <button type="button" class="btn" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+        <script>
+            function openForm() {
+                document.getElementById("popupForm").style.display = "block";
+            }
+        
+            function closeForm() {
+                document.getElementById("popupForm").style.display = "none";
+            }
+        
+            function submitForm(event) {
+            event.preventDefault();
+
+            var formData = new FormData(document.getElementById("myForm"));
+
+            var name = formData.get("name");
+            var email = formData.get("email");
+            var address = formData.get("address");
+
+            var message = `Name: ${name}\nEmail: ${email}\nAddress: ${address}`;
+
+            socket.emit("chatMessage", message);
+
+             closeForm();
+            }
+        
+            function sendMessage(message) {
+                console.log("Sending message:", message);
+            }
+        
+            addEventListener("load", function () {
+                const viewport = document.querySelector("meta[name=viewport]");
+                viewport.setAttribute(
+                    "content",
+                    viewport.content + ", height=" + window.innerHeight
+                );
+            });
+            
+        </script>
+        
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./scripts/app.js"></script>
+    </body>
+</html>
