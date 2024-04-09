@@ -54,15 +54,6 @@ I'm a Full Stack Developer, Graphic Designer, and Digital Marketer...
 🧠 Currently learning more...
 
 
-## 👨🏻‍💻 Experienced
-
-🏙️ Founder of KazWish
-
-🏙️ Former Consultant at Crayon
-
-🏙️ Former Content Manager at FirstGuide
-
-
 ## 🛠 Skills
 
 As a Full Stack Developer:
@@ -80,12 +71,12 @@ As a Digital Marketer:
     
 ## 🔗 Links
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.kazwish.com/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/OptimisticNurul)
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/optimisticnurul/)
 
 
 ## Support
 
-For support, email info.kazwish@gmail.com or join our Slack channel.
+For support, email info.optimisticnurul@gmail.com or join our Slack channel.
 
